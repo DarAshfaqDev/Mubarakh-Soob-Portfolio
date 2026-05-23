@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mubarak Ahmad Rabbani Al Qadri Al Hanafi | Islamic Research Scholar</title>
+  <meta name="description" content="Official website of Mubarak Ahmad Rabbani Al Qadri Al Hanafi – Islamic Research Scholar, Speaker, Author, and Ahl-e-Sunnat Wal Jamaat.">
+  <meta name="keywords" content="Mubarak Ahmad Rabbani, Islamic Scholar, Ahl-e-Sunnat, Kashmir, Sufi, Lectures, Books">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div id="loader" class="loader-container">
+    <div class="loader-bismillah">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</div>
+    <div class="loader-geo">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="50,3 97,27 97,73 50,97 3,73 3,27"/>
+        <polygon points="50,13 87,31 87,69 50,87 13,69 13,31"/>
+        <line x1="50" y1="3" x2="50" y2="13"/><line x1="97" y1="27" x2="87" y2="31"/>
+        <line x1="97" y1="73" x2="87" y2="69"/><line x1="50" y1="97" x2="50" y2="87"/>
+        <line x1="3" y1="73" x2="13" y2="69"/><line x1="3" y1="27" x2="13" y2="31"/>
+      </svg>
+    </div>
+    <div class="loader-text">Loading Sacred Knowledge</div>
+  </div>
+
+  <canvas id="particles"></canvas>
+
+  <nav id="navbar">
+    <div class="nav-logo">
+      <div class="nav-logo-icon">☪</div>
+      <span>MAR Al Qadri</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#books">Books</a></li>
+      <li><a href="#lectures">Lectures</a></li>
+      <li><a href="#quotes">Teachings</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-controls">
+      <button class="view-toggle-btn" id="moduleToggleBtn" title="Switch Between Interfaces">
+        <i class="fas fa-user-shield"></i> <span class="btn-toggle-text">Admin Hub</span>
+      </button>
+      <button class="theme-toggle" id="themeToggleBtn" title="Toggle Theme Matrix">
+        <i class="fas fa-moon" id="theme-icon"></i>
+      </button>
+      <button class="menu-btn" id="menuBtn"><i class="fas fa-bars"></i></button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" id="mobileCloseBtn">&times;</button>
+    <a href="#hero" class="mobile-link">Home</a>
+    <a href="#about" class="mobile-link">About</a>
+    <a href="#books" class="mobile-link">Books</a>
+    <a href="#lectures" class="mobile-link">Lectures</a>
+    <a href="#quotes" class="mobile-link">Teachings</a>
+    <a href="#gallery" class="mobile-link">Gallery</a>
+    <a href="#contact" class="mobile-link">Contact</a>
+    <button class="view-toggle-btn mobile-toggle" id="mobileModuleToggleBtn">
+      <i class="fas fa-user-shield"></i> Admin Hub
+    </button>
+  </div>
+
+  <main id="app-container">
+    
+    <div id="user-module" class="app-module active-module">
+      <section id="hero">
+        <div class="geo-bg opacity-30"></div>
+        <div class="hero-mosque"></div>
+        <div class="container hero-content">
+          <div class="hero-text">
+            <div class="hero-bismillah reveal">مبارک احمد ربانی القادری الحنفی</div>
+            <h1 class="hero-name reveal delay-1">Mubarak Ahmad<br><span class="text-gold">Rabbani Al Qadri</span><br>Al Hanafi</h1>
+            <p class="hero-subtitle reveal delay-2">Islamic Research Scholar &nbsp;·&nbsp; Speaker &nbsp;·&nbsp; Author<br>Ahl-e-Sunnat Wal Jamaat</p>
+            <div class="hero-badges reveal delay-2">
+              <span class="hero-badge">✦ Sufi Scholar</span>
+              <span class="hero-badge">✦ Aqeedah & Spirituality</span>
+              <span class="hero-badge">✦ Urdu & Kashmiri</span>
+              <span class="hero-badge">✦ 15+ Books</span>
+            </div>
+            <div class="hero-btns reveal delay-3">
+              <a href="#lectures" class="btn-primary"><i class="fas fa-play-circle"></i> Watch Lectures</a>
+              <a href="#books" class="btn-gold"><i class="fas fa-book-open"></i> Read Books</a>
+              <a href="#contact" class="btn-outline"><i class="fas fa-envelope"></i> Contact</a>
+            </div>
+          </div>
+          <div class="hero-image-wrap reveal-right">
+            <div class="hero-image-rings"></div>
+            <div class="hero-image-rings"></div>
+            <div class="hero-image-rings"></div>
+            <div class="hero-image-frame">
+              <img id="heroDynamicImg" src="photos/scholar-main.png" alt="Mubarak Ahmad Rabbani">
+            </div>
+          </div>
+        </div>
+        
+        <div class="container cards-split-grid">
+          <div class="hadith-card reveal delay-2">
+            <p class="hadith-text">"None of you will have faith till he loves me (Muhammad ﷺ) more than his Father, his Mother and all Mankind."</p>
+            <div class="hadith-source">— Hazrat Anas (RA) &nbsp;·&nbsp; <strong>Sahih Al-Bukhari</strong></div>
+          </div>
+          <div class="kashmiri-card reveal delay-3">
+            <div class="kashmiri-text">مشتاق گاش وندھی اے کاش مے نش ژٔ روزکھ<br>لگی نٔوُوُتِش اَمارس یارس ژٔ تِی ونکھنا</div>
+            <div class="kashmiri-label">Kashmiri Poetry — Mystical Longing</div>
+          </div>
+        </div>
+      </section>
+
+      <div id="stats">
+        <div class="container">
+          <div class="stats-grid">
+            <div class="stat-item">
+              <div class="stat-num"><span data-target="15">0</span>+</div>
+              <div class="stat-label">Books Authored</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num"><span data-target="12">0</span></div>
+              <div class="stat-label">Books Published</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num"><span data-target="1000">0</span>+</div>
+              <div class="stat-label">Lectures Delivered</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num"><span data-target="2">0</span></div>
+              <div class="stat-label">Languages (Urdu & Kashmiri)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section id="about">
+        <div class="geo-bg opacity-15"></div>
+        <div class="container">
+          <div class="about-grid">
+            <div class="about-image-wrap reveal-left">
+              <div class="about-frame">
+                <div class="about-frame-corner tl"></div>
+                <div class="about-frame-corner tr"></div>
+                <div class="about-frame-corner bl"></div>
+                <div class="about-frame-corner br"></div>
+                <img src="photos/scholar-about.png" alt="Scholar Portrait Portfolio View">
+                <div class="about-geo-badge">
+                  <span>30+</span>
+                  <span>Years of<br>Scholarship</span>
+                </div>
+              </div>
+            </div>
+            <div class="about-right reveal-right">
+              <span class="section-tag">✦ Biography</span>
+              <h2 class="section-title">A Life Devoted to<br><span>Sacred Knowledge</span></h2>
+              <div class="gold-divider"><span class="gold-divider-star">✦</span></div>
+              <p class="about-bio"><strong>Mubarak Ahmad Rabbani Al Qadri Al Hanafi</strong> is a distinguished Islamic Research Scholar of <strong>Ahl-e-Sunnat Wal Jamaat</strong>, deeply rooted in the traditions of Sufism and correct Islamic belief (Aetiqad). Born and raised in the blessed region of Kashmir, he has dedicated his entire life to the dissemination of authentic Islamic knowledge.</p>
+              <p class="about-bio">A prolific author with <strong>over 15 books</strong> to his name — 12 of which have been formally published — his writings span the domains of <strong>Aqeedah, Tasawwuf, Seerat, and Islamic Research</strong>. His eloquent oratory has touched thousands of hearts across Urdu and Kashmiri-speaking communities through more than <strong>1,000 public lectures</strong>.</p>
+              
+              <div class="about-features">
+                <div class="about-feature reveal delay-1">
+                  <div class="about-feature-icon"><i class="fas fa-star-and-crescent"></i></div>
+                  <div class="about-feature-text"><h4>Sufism & Spirituality</h4><p>Deep roots in Qadri order</p></div>
+                </div>
+                <div class="about-feature reveal delay-2">
+                  <div class="about-feature-icon"><i class="fas fa-book-quran"></i></div>
+                  <div class="about-feature-text"><h4>Aqeedah Research</h4><p>Islamic theology & belief</p></div>
+                </div>
+                <div class="about-feature reveal delay-3">
+                  <div class="about-feature-icon"><i class="fas fa-microphone-alt"></i></div>
+                  <div class="about-feature-text"><h4>1000+ Lectures</h4><p>Urdu & Kashmiri audiences</p></div>
+                </div>
+                <div class="about-feature reveal delay-4">
+                  <div class="about-feature-icon"><i class="fas fa-pen-nib"></i></div>
+                  <div class="about-feature-text"><h4>15+ Books Authored</h4><p>Published scholarly works</p></div>
+                </div>
+              </div>
+
+              <div class="timeline mt-40">
+                <h3 class="timeline-title">Scholarly <span class="text-gold">Journey</span></h3>
+                <div class="timeline-item reveal">
+                  <div class="timeline-dot"><i class="fas fa-seedling"></i></div>
+                  <div class="timeline-content">
+                    <div class="timeline-year">Early Years</div>
+                    <h4>Foundation of Sacred Learning</h4>
+                    <p>Began memorization of Quran and classical Islamic sciences under distinguished scholars of Kashmir.</p>
+                  </div>
+                </div>
+                <div class="timeline-item reveal delay-1">
+                  <div class="timeline-dot"><i class="fas fa-graduation-cap"></i></div>
+                  <div class="timeline-content">
+                    <div class="timeline-year">Formal Education</div>
+                    <h4>Advanced Islamic Studies</h4>
+                    <p>Completed comprehensive studies in Fiqh, Hadith, Tafseer, and the sciences of Tasawwuf.</p>
+                  </div>
+                </div>
+                <div class="timeline-item reveal delay-2">
+                  <div class="timeline-dot"><i class="fas fa-feather-alt"></i></div>
+                  <div class="timeline-content">
+                    <div class="timeline-year">Authorship</div>
+                    <h4>Began Writing & Publishing</h4>
+                    <p>Authored his first major works on Aqeedah and Sufism; 12 books formally published to date.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="books">
+        <div class="geo-bg"></div>
+        <div class="container">
+          <div class="section-intro text-center reveal">
+            <span class="section-tag">✦ Library Catalog</span>
+            <h2 class="section-title">Published <span>Works & Learning Modules</span></h2>
+            <div class="gold-divider"><span class="gold-divider-star">✦</span></div>
+            <p class="section-desc centered">Search courses and explore structural book catalogs containing authentic commentary on Aqeedah and Sufi spiritual pathways.</p>
+            
+            <div class="search-filter-wrapper mt-40">
+              <div class="search-box">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="courseSearchInput" placeholder="Search courses or book titles instantly...">
+              </div>
+            </div>
+          </div>
+
+          <div class="filter-tabs reveal">
+            <button class="filter-tab active" data-filter="all">All Modules</button>
+            <button class="filter-tab" data-filter="published">Published Books</button>
+            <button class="filter-tab" data-filter="upcoming">Core Courses</button>
+            <button class="filter-tab" data-filter="research">Research Papers</button>
+          </div>
+
+          <div class="books-grid" id="booksGrid"></div>
+        </div>
+      </section>
+
+      <section id="lectures">
+        <div class="geo-bg opacity-15"></div>
+        <div class="container">
+          <div class="lectures-header">
+            <div class="reveal">
+              <span class="section-tag">✦ Video Streams</span>
+              <h2 class="section-title">Wisdom in <span>Sound & Vision</span></h2>
+              <div class="gold-divider"><span class="gold-divider-star">✦</span></div>
+            </div>
+            <a href="https://www.youtube.com/@MUBARAKAHMADRABANI" target="_blank" class="yt-channel-btn reveal">
+              <i class="fab fa-youtube"></i> Visit YouTube Channel
+            </a>
+          </div>
+
+          <div class="lecture-categories reveal" id="lectureCategoryTrack">
+            <button class="lecture-cat active" data-category="All">All Categories</button>
+            <button class="lecture-cat" data-category="Aqeedah">Aqeedah</button>
+            <button class="lecture-cat" data-category="Sufism">Sufism</button>
+            <button class="lecture-cat" data-category="Islamic Research">Islamic Research</button>
+            <button class="lecture-cat" data-category="Seerat">Seerat</button>
+            <button class="lecture-cat" data-category="Spirituality">Spirituality</button>
+          </div>
+
+          <div class="lectures-grid" id="lecturesGrid"></div>
+        </div>
+      </section>
+
+      <section id="quotes">
+        <div class="quotes-bg"></div>
+        <div class="geo-bg"></div>
+        <div class="container">
+          <div class="section-intro reveal">
+            <span class="section-tag">✦ Teachings & Wisdom</span>
+            <h2 class="section-title">Pearls of <span>Prophetic Light</span></h2>
+            <div class="gold-divider"><span class="gold-star">✦</span></div>
+          </div>
+
+          <div class="carousel reveal">
+            <div class="carousel-track" id="carouselTrack"></div>
+            <div class="carousel-dots" id="carouselDots"></div>
+            <div class="carousel-arrows">
+              <button class="carousel-arrow" id="prevQuoteBtn"><i class="fas fa-chevron-left"></i></button>
+              <button class="carousel-arrow" id="nextQuoteBtn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="gallery">
+        <div class="container">
+          <div class="section-intro text-center reveal">
+            <span class="section-tag">✦ Media Gallery</span>
+            <h2 class="section-title">Moments of <span>Sacred Gathering & Waaz</span></h2>
+            <div class="gold-divider"><span class="gold-divider-star">✦</span></div>
+            <p class="section-desc centered">Visual archive tracking state public assemblies, podium addresses, and scholarly text releases across Kashmir.</p>
+          </div>
+          <div class="gallery-grid reveal" id="galleryGrid"></div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="geo-bg"></div>
+        <div class="container">
+          <div class="section-intro text-center reveal">
+            <span class="section-tag">✦ Connect Channels</span>
+            <h2 class="section-title">Connect &amp; <span>Seek Guidance</span></h2>
+            <div class="gold-divider"><span class="gold-divider-star">✦</span></div>
+          </div>
+
+          <div class="contact-grid">
+            <div class="reveal-left">
+              <h3>Reach the Scholar</h3>
+              <p class="contact-desc">Whether you wish to request a lecture, inquire about books, or seek spiritual counsel — this space of communication is open to all sincere hearts.</p>
+
+              <div class="contact-items">
+                <div class="contact-item">
+                  <div class="contact-item-icon"><i class="fas fa-envelope"></i></div>
+                  <div class="contact-item-text">
+                    <label>Email Address</label>
+                    <a href="mailto:mubarakhamzah12@gmail.com">mubarakhamzah12@gmail.com</a>
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <div class="contact-item-icon"><i class="fab fa-facebook-f"></i></div>
+                  <div class="contact-item-text">
+                    <label>Facebook Communities</label>
+                    <a href="https://www.facebook.com/mubarakahmadrabani/" target="_blank">mubarakahmadrabani</a>
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <div class="contact-item-icon"><i class="fas fa-map-marker-alt"></i></div>
+                  <div class="contact-item-text">
+                    <label>Primary Location</label>
+                    <span>Kashmir, India</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-form reveal-right">
+              <h3 class="form-title">Send a Message</h3>
+              <form id="userQueryContactForm" onsubmit="event.preventDefault();">
+                <div class="form-grid">
+                  <div class="form-group">
+                    <label for="contact_name">Your Name</label>
+                    <input type="text" id="contact_name" placeholder="Full Name" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="contact_email">Email Address</label>
+                    <input type="email" id="contact_email" placeholder="your@email.com" required>
+                  </div>
+                  <div class="form-group full">
+                    <label for="contact_purpose">Purpose of Contact</label>
+                    <select id="contact_purpose" required>
+                      <option value="">Select a purpose...</option>
+                      <option>Request a Lecture</option>
+                      <option>Book Inquiry</option>
+                      <option>Spiritual Guidance</option>
+                      <option>General Inquiry</option>
+                    </select>
+                  </div>
+                  <div class="form-group full">
+                    <label for="contact_msg">Your Message</label>
+                    <textarea id="contact_msg" placeholder="Write your message here..." required></textarea>
+                  </div>
+                </div>
+                <button type="submit" class="form-submit-btn" id="contactSubmitBtn"><i class="fas fa-paper-plane"></i> &nbsp; Send Message</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- 🛑 ADMINISTRATIVE BACKEND CMS CONTENT MANAGEMENT MODULE -->
+    <div id="admin-module" class="app-module">
+      <section class="admin-dashboard-container">
+        <div class="container">
+          
+          <div class="admin-header-panel">
+            <div>
+              <span class="admin-badge">Secure Control System</span>
+              <h2 class="admin-main-title">Control Room CMS Dashboard</h2>
+            </div>
+            <div class="admin-actions-group">
+              <button class="btn-gold small-btn" id="openAddCourseModalBtn"><i class="fas fa-plus"></i> Add New Module</button>
+              <button class="btn-primary small-btn" id="openAddLectureModalBtn"><i class="fas fa-video"></i> Link YouTube Asset</button>
+            </div>
+          </div>
+
+          <div class="analytics-row-grid mt-40">
+            <div class="analytics-card">
+              <div class="analytics-icon-box em-bg"><i class="fas fa-graduation-cap"></i></div>
+              <div class="analytics-info-block">
+                <span class="analytics-label">Active Learning Modules</span>
+                <h3 class="analytics-metric" id="dashTotalCoursesCounter">0</h3>
+              </div>
+            </div>
+            <div class="analytics-card">
+              <div class="analytics-icon-box gold-bg"><i class="fas fa-video"></i></div>
+              <div class="analytics-info-block">
+                <span class="analytics-label">YouTube Video Links</span>
+                <h3 class="analytics-metric" id="dashTotalLecturesCounter">0</h3>
+              </div>
+            </div>
+            <div class="analytics-card">
+              <div class="analytics-icon-box ink-bg"><i class="fas fa-images"></i></div>
+              <div class="analytics-info-block">
+                <span class="analytics-label">Synced Gallery Photos</span>
+                <h3 class="analytics-metric" id="dashTotalGalleryCounter">0</h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="admin-data-split-matrix mt-40">
+            <div class="data-management-table-card">
+              <div class="table-card-header">
+                <h4>Course Libraries & Published Assets CMS</h4>
+                <p>Modify structural card fields or clear data rows natively.</p>
+              </div>
+              <div class="responsive-table-outer">
+                <table class="cms-data-table">
+                  <thead>
+                    <tr>
+                      <th>Module Title</th>
+                      <th>Category Tag</th>
+                      <th>Release</th>
+                      <th class="text-center">Operations</th>
+                    </tr>
+                  </thead>
+                  <tbody id="cmsCoursesTableBody">
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="data-management-table-card">
+              <div class="table-card-header">
+                <h4>YouTube Lecture Streaming Asset Index</h4>
+                <p>Add description abstract values or manage system media pipelines.</p>
+              </div>
+              <div class="responsive-table-outer">
+                <table class="cms-data-table">
+                  <thead>
+                    <tr>
+                      <th>Video Instance Title</th>
+                      <th>Category Target</th>
+                      <th>Runtime</th>
+                      <th class="text-center">Operations</th>
+                    </tr>
+                  </thead>
+                  <tbody id="cmsLecturesTableBody">
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div> 
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- CRUD OVERLAY MODALS -->
+  <div class="modal-system-overlay" id="courseCrudModal">
+    <div class="modal-window-card">
+      <div class="modal-header-block">
+        <h3 id="courseModalTitle">Create Operational Course Asset</h3>
+        <button class="close-modal-trigger-btn" id="closeCourseModalBtn">&times;</button>
+      </div>
+      <form id="courseCrudForm" onsubmit="event.preventDefault();">
+        <input type="hidden" id="courseEditId" value="">
+        <div class="modal-form-body-grid">
+          <div class="form-group full">
+            <label for="courseTitleInput">Standard English Title</label>
+            <input type="text" id="courseTitleInput" required placeholder="e.g., Classical Jurisprudence">
+          </div>
+          <div class="form-group full">
+            <label for="courseUrduInput">Right-To-Left Native Urdu Script</label>
+            <input type="text" id="courseUrduInput" required placeholder="e.g., علم الفقہ">
+          </div>
+          <div class="form-group">
+            <label for="courseCatSelect">Platform Classification Module</label>
+            <select id="courseCatSelect" required>
+              <option value="published">Published Books Portfolio</option>
+              <option value="upcoming">Core Learning Course</option>
+              <option value="research">Scholarly Research Paper</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="courseYearInput">Publishing Calendar Year</label>
+            <input type="number" id="courseYearInput" required placeholder="2026" min="1980" max="2100">
+          </div>
+          <div class="form-group full">
+            <label for="courseDescTextArea">Short Abstract Description Details</label>
+            <textarea id="courseDescTextArea" required placeholder="Enter concise dynamic course descriptions..."></textarea>
+          </div>
+        </div>
+        <div class="modal-footer-actions">
+          <button type="button" class="btn-outline positional-close" id="cancelCourseModalBtn">Dismiss Form</button>
+          <button type="submit" class="btn-gold" id="saveCourseSubmitBtn">Commit Operational State</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal-system-overlay" id="lectureCrudModal">
+    <div class="modal-window-card">
+      <div class="modal-header-block">
+        <h3 id="lectureModalTitle">Link External YouTube Resource Video</h3>
+        <button class="close-modal-trigger-btn" id="closeLectureModalBtn">&times;</button>
+      </div>
+      <form id="lectureCrudForm" onsubmit="event.preventDefault();">
+        <input type="hidden" id="lectureEditId" value="">
+        <div class="modal-form-body-grid">
+          <div class="form-group full">
+            <label for="lectureTitleInput">Streaming Lecture Display Heading</label>
+            <input type="text" id="lectureTitleInput" required placeholder="e.g., Ishq e Mustafa ﷺ — Path to Divine Love">
+          </div>
+          <div class="form-group">
+            <label for="lectureCatInput">Streaming Category Target Map</label>
+            <input type="text" id="lectureCatInput" required placeholder="e.g., Sufism, Aqeedah, Seerat">
+          </div>
+          <div class="form-group">
+            <label for="lectureDurInput">Media Runtime Frame Duration</label>
+            <input type="text" id="lectureDurInput" required placeholder="e.g., 45 min, 1h 20min">
+          </div>
+          <div class="form-group full">
+            <label for="lectureUrlInput">Embedded YouTube Embed URL</label>
+            <input type="url" id="lectureUrlInput" required placeholder="https://www.youtube.com/embed/exampleVideoId">
+          </div>
+        </div>
+        <div class="modal-footer-actions">
+          <button type="button" class="btn-outline positional-close" id="cancelLectureModalBtn">Dismiss Form</button>
+          <button type="submit" class="btn-primary" id="saveLectureSubmitBtn">Commit Stream Matrix</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 🔐 ADMIN AUTHENTICATION MODAL -->
+  <div class="modal-system-overlay" id="adminLoginModal">
+    <div class="modal-window-card" style="max-width: 400px;">
+      <div class="modal-header-block">
+        <h3 id="loginModalTitle">Admin Authentication</h3>
+        <button class="close-modal-trigger-btn" id="closeLoginModalBtn">&times;</button>
+      </div>
+      <form id="adminLoginForm" onsubmit="event.preventDefault();">
+        <div class="modal-form-body-grid" style="grid-template-columns: 1fr;">
+          
+          <div class="form-group full">
+            <label for="adminEmailInput">Authorized Email</label>
+            <input type="email" id="adminEmailInput" required placeholder="admin@example.com">
+          </div>
+          
+          <div class="form-group full">
+            <label for="adminPasswordInput">Password</label>
+            <div style="position: relative; display: flex; align-items: center;">
+              <input type="password" id="adminPasswordInput" required placeholder="••••••••" style="width: 100%; padding-right: 45px;">
+              <i class="fas fa-eye" id="togglePasswordBtn" title="Toggle Password Visibility" style="position: absolute; right: 15px; cursor: pointer; color: var(--text3); font-size: 1.1rem; transition: color var(--trans);"></i>
+            </div>
+          </div>
+
+          <div id="loginErrorMsg" style="color: #ff4d4d; font-size: 0.85rem; display: none; font-family: var(--font-ui); font-weight: 500;">
+            <i class="fas fa-exclamation-circle"></i> Unauthorized credentials. Access denied.
+          </div>
+          
+        </div>
+        <div class="modal-footer-actions" style="padding-top: 10px;">
+          <button type="submit" class="form-submit-btn" style="width: 100%; margin-top: 0; justify-content: center;">Authenticate & Enter</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ═══════════════ GLOBAL FOOTER OVERLAY ═══════════════ -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>Mubarak Ahmad Rabbani</h3>
+          <span class="arabic">مبارک احمد ربانی القادری الحنفی</span>
+          <p>A distinguished scholar of Ahl-e-Sunnat Wal Jamaat, devoted to Islamic research, Sufism, and the spiritual upliftment of the Ummah through authentic knowledge.</p>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/mubarakahmadrabani/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.youtube.com/@MUBARAKAHMADRABANI" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="mailto:mubarakhamzah12@gmail.com"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Navigation Links</h4>
+          <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About Scholar</a></li>
+            <li><a href="#books">Books & Publications</a></li>
+            <li><a href="#lectures">Video Lectures</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Scholarly Core Topics</h4>
+          <ul>
+            <li><a href="#books">Aqeedah & Belief</a></li>
+            <li><a href="#about">Tasawwuf & Sufism</a></li>
+            <li><a href="#hero">Seerat un Nabi ﷺ</a></li>
+            <li><a href="#books">Fiqh al-Hanafi</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Connect Channels</h4>
+          <ul>
+            <li><a href="mailto:mubarakhamzah12@gmail.com">Email Scholar</a></li>
+            <li><a href="#contact">Send Direct Query Message</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-quran">
+      <div class="footer-quran-text">يَرْفَعِ اللَّهِ الَّذِينَ آمَنُوا مِنكُمْ وَالَّذِينَ أُوتُوا الْعِلْمَ دَرَجَاتٍ</div>
+      <div class="footer-quran-ref">Allah will raise those who have believed among you and those who were given knowledge, by degrees. — Al-Quran 58:11</div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Mubarak Ahmad Rabbani Al Qadri Al Hanafi &nbsp;·&nbsp; All Rights Reserved &nbsp;·&nbsp; Cloud Managed Platform Workspace</p>
+    </div>
+  </footer>
+
+  <button class="back-top" id="backTop" title="Return to Top View Layer">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxCloseBtn">&times;</button>
+    <div class="lightbox-inner">
+      <div class="lightbox-content" id="lightboxContent"></div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
