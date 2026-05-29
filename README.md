@@ -42,6 +42,7 @@ This project is a modern, high-performance, and responsive educational platform 
 
 
 * **Analytics Dashboard:** Real-time monitoring of library assets and media repositories.
+* **Lecture Sync System:** Imports the official YouTube channel through the YouTube Data API, auto-categorizes lectures, and builds internal playlists directly from the imported videos.
 
 
 
@@ -56,6 +57,7 @@ This project is a modern, high-performance, and responsive educational platform 
 
 
 * **Architecture:** Decoupled modular design separating structural, styling, and business logic layers.
+* **Lecture Data:** Cached locally after sync and grouped into virtual playlists derived from lecture content.
 
 
 
@@ -101,6 +103,8 @@ The admin dashboard is protected via the integrated Authentication Modal.
 
 
 3. **Local Execution:** Open `index.html` in any modern web browser or use a live server extension (like VS Code Live Server) to view the platform locally.
+
+4. **YouTube Sync Setup:** Set `window.MAR_YOUTUBE_API_KEY` in `index.html` or persist a key in `localStorage` under `mar_youtube_api_key` to enable live imports from the official channel handle `@MUBARAKAHMADRABANI`.
 
 
 

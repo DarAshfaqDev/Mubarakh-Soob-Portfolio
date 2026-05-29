@@ -6,12 +6,24 @@
   <title>Mubarak Ahmad Rabbani Al Qadri Al Hanafi | Islamic Research Scholar</title>
   <meta name="description" content="Official website of Mubarak Ahmad Rabbani Al Qadri Al Hanafi – Islamic Research Scholar, Speaker, Author, and Ahl-e-Sunnat Wal Jamaat.">
   <meta name="keywords" content="Mubarak Ahmad Rabbani, Islamic Scholar, Ahl-e-Sunnat, Kashmir, Sufi, Lectures, Books">
+  <meta property="og:title" content="Mubarak Ahmad Rabbani Al Qadri Al Hanafi | Islamic Research Scholar">
+  <meta property="og:description" content="Official website of Mubarak Ahmad Rabbani Al Qadri Al Hanafi with auto-organized lecture playlists and scholarly publications.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.youtube.com/@MUBARAKAHMADRABANI">
+  <meta property="og:image" content="photos/scholar-main.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mubarak Ahmad Rabbani Al Qadri Al Hanafi">
+  <meta name="twitter:description" content="Official website with auto-organized lecture playlists and scholarly publications.">
+  <meta name="twitter:image" content="photos/scholar-main.png">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
+  <script>
+    window.MAR_YOUTUBE_API_KEY = window.MAR_YOUTUBE_API_KEY || "AIzaSyDn1YcSOM6ICWr3U72WI-OJRsjkZjydBoo";
+  </script>
 </head>
 <body>
 
@@ -249,22 +261,35 @@
               <span class="section-tag">✦ Video Streams</span>
               <h2 class="section-title">Wisdom in <span>Sound & Vision</span></h2>
               <div class="gold-divider"><span class="gold-divider-star">✦</span></div>
+              <p class="section-desc">Auto-organized lectures from the official channel, grouped into virtual playlists and kept in sync as new uploads arrive.</p>
             </div>
-            <a href="https://www.youtube.com/@MUBARAKAHMADRABANI" target="_blank" class="yt-channel-btn reveal">
-              <i class="fab fa-youtube"></i> Visit YouTube Channel
-            </a>
+            <div class="lecture-header-actions reveal">
+              <a href="https://www.youtube.com/@MUBARAKAHMADRABANI" target="_blank" class="yt-channel-btn">
+                <i class="fab fa-youtube"></i> Visit YouTube Channel
+              </a>
+              <button class="btn-outline small-btn" id="refreshLectureSyncBtn"><i class="fas fa-arrows-rotate"></i> Sync Library</button>
+            </div>
           </div>
 
-          <div class="lecture-categories reveal" id="lectureCategoryTrack">
-            <button class="lecture-cat active" data-category="All">All Categories</button>
-            <button class="lecture-cat" data-category="Aqeedah">Aqeedah</button>
-            <button class="lecture-cat" data-category="Sufism">Sufism</button>
-            <button class="lecture-cat" data-category="Islamic Research">Islamic Research</button>
-            <button class="lecture-cat" data-category="Seerat">Seerat</button>
-            <button class="lecture-cat" data-category="Spirituality">Spirituality</button>
+          <div class="lecture-toolbar reveal">
+            <div class="lecture-search-wrap">
+              <i class="fas fa-search"></i>
+              <input type="search" id="lectureSearchInput" placeholder="Search lectures, topics, or keywords">
+            </div>
+            <select id="lecturePlaylistFilter" class="lecture-select">
+              <option value="all">All playlists</option>
+            </select>
+            <select id="lectureSortSelect" class="lecture-select">
+              <option value="newest">Newest first</option>
+              <option value="oldest">Oldest first</option>
+              <option value="popular">Most viewed</option>
+            </select>
+            <div class="lecture-sync-pill" id="lectureSyncStatus">Waiting for channel sync</div>
           </div>
 
-          <div class="lectures-grid" id="lecturesGrid"></div>
+          <div class="lecture-playlist-strip reveal" id="lecturePlaylistStrip"></div>
+          <div class="lecture-library-grid reveal" id="lecturesGrid"></div>
+          <div class="lecture-pagination reveal" id="lecturePagination"></div>
         </div>
       </section>
 
@@ -387,8 +412,15 @@
             </div>
             <div class="admin-actions-group">
               <button class="btn-gold small-btn" id="openAddCourseModalBtn"><i class="fas fa-plus"></i> Add New Module</button>
-              <button class="btn-primary small-btn" id="openAddLectureModalBtn"><i class="fas fa-video"></i> Link YouTube Asset</button>
+              <button class="btn-primary small-btn" id="openAddLectureModalBtn"><i class="fas fa-video"></i> Manage Lecture</button>
+              <button class="btn-outline small-btn" id="openAddPlaylistModalBtn"><i class="fas fa-folder-plus"></i> Add Playlist</button>
+              <button class="btn-outline small-btn" id="openTaxonomyModalBtn"><i class="fas fa-sitemap"></i> Edit Taxonomy</button>
             </div>
+          </div>
+          <div class="admin-sync-config">
+            <input type="password" id="youtubeApiKeyInput" placeholder="YouTube Data API key">
+            <button class="btn-outline small-btn" id="saveYoutubeApiKeyBtn"><i class="fas fa-key"></i> Save API Key</button>
+            <span id="youtubeApiKeyStatus"></span>
           </div>
 
           <div class="analytics-row-grid mt-40">
@@ -402,7 +434,7 @@
             <div class="analytics-card">
               <div class="analytics-icon-box gold-bg"><i class="fas fa-video"></i></div>
               <div class="analytics-info-block">
-                <span class="analytics-label">YouTube Video Links</span>
+                <span class="analytics-label">Imported Lectures</span>
                 <h3 class="analytics-metric" id="dashTotalLecturesCounter">0</h3>
               </div>
             </div>
@@ -439,25 +471,46 @@
 
             <div class="data-management-table-card">
               <div class="table-card-header">
-                <h4>YouTube Lecture Streaming Asset Index</h4>
-                <p>Add description abstract values or manage system media pipelines.</p>
+                <h4>Virtual Playlist Manager</h4>
+                <p>Create custom playlist covers, reorder sets, and keep categorized lectures curated.</p>
               </div>
               <div class="responsive-table-outer">
                 <table class="cms-data-table">
                   <thead>
                     <tr>
-                      <th>Video Instance Title</th>
-                      <th>Category Target</th>
-                      <th>Runtime</th>
+                      <th>Playlist</th>
+                      <th>Lectures</th>
+                      <th>Last Updated</th>
                       <th class="text-center">Operations</th>
                     </tr>
                   </thead>
-                  <tbody id="cmsLecturesTableBody">
+                  <tbody id="cmsPlaylistsTableBody">
                   </tbody>
                 </table>
               </div>
             </div>
           </div> 
+
+          <div class="data-management-table-card mt-40">
+            <div class="table-card-header">
+              <h4>Lecture Import Index</h4>
+              <p>Move videos between playlists, pin important lectures, and bulk-assign categories.</p>
+            </div>
+            <div class="responsive-table-outer">
+              <table class="cms-data-table">
+                <thead>
+                  <tr>
+                    <th>Lecture</th>
+                    <th>Playlist</th>
+                    <th>Duration</th>
+                    <th class="text-center">Operations</th>
+                  </tr>
+                </thead>
+                <tbody id="cmsLecturesTableBody">
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </section>
     </div>
@@ -509,32 +562,101 @@
   <div class="modal-system-overlay" id="lectureCrudModal">
     <div class="modal-window-card">
       <div class="modal-header-block">
-        <h3 id="lectureModalTitle">Link External YouTube Resource Video</h3>
+        <h3 id="lectureModalTitle">Manage Lecture Assignment</h3>
         <button class="close-modal-trigger-btn" id="closeLectureModalBtn">&times;</button>
       </div>
       <form id="lectureCrudForm" onsubmit="event.preventDefault();">
         <input type="hidden" id="lectureEditId" value="">
         <div class="modal-form-body-grid">
           <div class="form-group full">
-            <label for="lectureTitleInput">Streaming Lecture Display Heading</label>
-            <input type="text" id="lectureTitleInput" required placeholder="e.g., Ishq e Mustafa ﷺ — Path to Divine Love">
+            <label for="lectureTitleInput">Lecture Title</label>
+            <input type="text" id="lectureTitleInput" required placeholder="Title from YouTube or manual override">
           </div>
           <div class="form-group">
-            <label for="lectureCatInput">Streaming Category Target Map</label>
-            <input type="text" id="lectureCatInput" required placeholder="e.g., Sufism, Aqeedah, Seerat">
+            <label for="lectureCatInput">Category</label>
+            <input type="text" id="lectureCatInput" required placeholder="Aqeedah, Tafseer, Seerah">
           </div>
           <div class="form-group">
-            <label for="lectureDurInput">Media Runtime Frame Duration</label>
-            <input type="text" id="lectureDurInput" required placeholder="e.g., 45 min, 1h 20min">
+            <label for="lectureDurInput">Duration</label>
+            <input type="text" id="lectureDurInput" required placeholder="45 min">
           </div>
           <div class="form-group full">
-            <label for="lectureUrlInput">Embedded YouTube Embed URL</label>
-            <input type="url" id="lectureUrlInput" required placeholder="https://www.youtube.com/embed/exampleVideoId">
+            <label for="lectureUrlInput">YouTube URL or Embed URL</label>
+            <input type="url" id="lectureUrlInput" required placeholder="https://www.youtube.com/watch?v=...">
+          </div>
+          <div class="form-group">
+            <label for="lecturePlaylistInput">Playlist</label>
+            <input type="text" id="lecturePlaylistInput" placeholder="Optional playlist name">
+          </div>
+          <div class="form-group">
+            <label for="lecturePinInput">Pin Lecture</label>
+            <select id="lecturePinInput">
+              <option value="false">No</option>
+              <option value="true">Yes</option>
+            </select>
           </div>
         </div>
         <div class="modal-footer-actions">
           <button type="button" class="btn-outline positional-close" id="cancelLectureModalBtn">Dismiss Form</button>
           <button type="submit" class="btn-primary" id="saveLectureSubmitBtn">Commit Stream Matrix</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal-system-overlay" id="playlistCrudModal">
+    <div class="modal-window-card">
+      <div class="modal-header-block">
+        <h3 id="playlistModalTitle">Create Playlist</h3>
+        <button class="close-modal-trigger-btn" id="closePlaylistModalBtn">&times;</button>
+      </div>
+      <form id="playlistCrudForm" onsubmit="event.preventDefault();">
+        <input type="hidden" id="playlistEditId" value="">
+        <div class="modal-form-body-grid">
+          <div class="form-group full">
+            <label for="playlistNameInput">Playlist Name</label>
+            <input type="text" id="playlistNameInput" required placeholder="Aqeedah">
+          </div>
+          <div class="form-group full">
+            <label for="playlistDescInput">Description</label>
+            <textarea id="playlistDescInput" placeholder="Short playlist description"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="playlistOrderInput">Display Order</label>
+            <input type="number" id="playlistOrderInput" min="1" value="1">
+          </div>
+          <div class="form-group">
+            <label for="playlistCoverInput">Cover Image</label>
+            <input type="file" id="playlistCoverInput" accept="image/png,image/jpeg,image/webp">
+          </div>
+          <div class="form-group full">
+            <div class="playlist-cover-preview" id="playlistCoverPreview"></div>
+          </div>
+        </div>
+        <div class="modal-footer-actions">
+          <button type="button" class="btn-outline positional-close" id="cancelPlaylistModalBtn">Dismiss Form</button>
+          <button type="submit" class="btn-gold">Save Playlist</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal-system-overlay" id="taxonomyCrudModal">
+    <div class="modal-window-card" style="max-width: 740px;">
+      <div class="modal-header-block">
+        <h3 id="taxonomyModalTitle">Edit Lecture Taxonomy</h3>
+        <button class="close-modal-trigger-btn" id="closeTaxonomyModalBtn">&times;</button>
+      </div>
+      <form id="taxonomyCrudForm" onsubmit="event.preventDefault();">
+        <div class="modal-form-body-grid">
+          <div class="form-group full">
+            <label for="taxonomyJsonInput">Taxonomy JSON</label>
+            <textarea id="taxonomyJsonInput" spellcheck="false" style="min-height: 320px; font-family: monospace;"></textarea>
+          </div>
+        </div>
+        <div class="modal-footer-actions">
+          <button type="button" class="btn-outline positional-close" id="cancelTaxonomyModalBtn">Dismiss Form</button>
+          <button type="submit" class="btn-gold">Save Taxonomy</button>
         </div>
       </form>
     </div>
@@ -636,6 +758,8 @@
     </div>
   </div>
 
+  <script src="js/lecture-cache.js"></script>
+  <script src="https://www.youtube.com/iframe_api"></script>
   <script src="js/script.js"></script>
 </body>
 </html>
